@@ -173,7 +173,7 @@ class ComicEarthstar(ComicReader):
 
         comic_info = requests.get(headers=RqHeaders(),
                                     url='https://api.comic-earthstar.jp/c.php?cid='+cid, proxies=RqProxy.get_proxy()).json()
-        base_file_path = './漫畫/' + re.search(
+        base_file_path = '' + re.search(
                 'https://storage.comic-earthstar.jp/data/([0-9a-zA-Z]*)/[0-9a-zA-Z_-]*/', comic_info['url']).group(1) + "/"+ comic_info["cti"]
         if cc_mkdir(base_file_path) != 0:
             return -1
