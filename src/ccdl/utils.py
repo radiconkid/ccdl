@@ -248,7 +248,7 @@ def cc_mkdir(fpath, model=0) -> int:
             print('\n現在のセッションに"{}"フォルダが存在する場合、実行を続けるとデータは上書きされます！'.format(fpath))
             print('このまま続けますか？（y/n）')
             yn = input()
-            return 0 if yn == 'y' or yn == 'yes' or yn == 'Y' else return -1
+            return 0 if yn == 'y' or yn == 'yes' or yn == 'Y' else -1
         else:
             if not os.path.exists(fpath):
                 os.makedirs(fpath)
@@ -258,7 +258,7 @@ def cc_mkdir(fpath, model=0) -> int:
         print('\n現在のセッションのフォルダ"{}"が存在します。'.format(fpath))
         print('このまま続けますか？（y/n）')
         yn = input()
-        return 0 if yn == 'y' or yn == 'yes' or yn == 'Y' else return -1
+        return 0 if yn == 'y' or yn == 'yes' or yn == 'Y' else -1
     else:
         if not os.path.exists(fpath + '/source'):
             os.makedirs(fpath + '/source')
