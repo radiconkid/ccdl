@@ -245,18 +245,18 @@ def cc_mkdir(fpath, model=0) -> int:
     """
     if model == 1:
         if os.path.exists(fpath):
-            print('\n當前一話的文件夾 "{}" 存在，繼續運行數據將被覆蓋！'.format(fpath))
-            print('是否繼續運行？（y/n）')
+            print('\n現在のセッションに"{}"フォルダが存在する場合、実行を続けるとデータは上書きされます！'.format(fpath))
+            print('このまま続けますか？（y/n）')
             yn = input()
             return 0 if yn == 'y' or yn == 'yes' or yn == 'Y' else -1
         else:
             if not os.path.exists(fpath):
                 os.makedirs(fpath)
-            print('創建文件夾: ' + fpath)
+            print('フォルダの作成: ' + fpath)
             return 0
     if os.path.exists(fpath+'/source') and os.path.exists(fpath+'/target'):
-        print('\n當前一話的文件夾 "{}" 存在，繼續運行數據將被覆蓋，'.format(fpath))
-        print('是否繼續運行？（y/n）')
+        print('\n現在のセッションのフォルダ"{}"が存在します。'.format(fpath))
+        print('このまま続けますか？（y/n）')
         yn = input()
         return 0 if yn == 'y' or yn == 'yes' or yn == 'Y' else -1
     else:
@@ -265,13 +265,13 @@ def cc_mkdir(fpath, model=0) -> int:
         if not os.path.exists(fpath + '/target'):
             os.makedirs(fpath + '/target')
 
-        print('創建文件夾: ' + fpath)
+        print('フォルダの作成: ' + fpath)
         return 0
 
 
 def get_blob_content(driver: webdriver.Chrome, uri):
     """
-    获取浏览器中的blob对象的数据
+    ブラウザでblobオブジェクトのデータを取得する
     """
     result = driver.execute_async_script("""
         var uri = arguments[0];
