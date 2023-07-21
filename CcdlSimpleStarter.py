@@ -4,6 +4,7 @@ import platform
 import sys
 import time
 import traceback
+import pyperclip
 
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
