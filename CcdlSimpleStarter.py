@@ -71,7 +71,7 @@ if __name__ == "__main__":
     print("\n>>>>>>>> exit <<<<<<<<\n")
 
     while True:
-        url = sys.argv[1]
+        url = pyperclip.paste()
 
         if url == 'exit':
             print('Bye~')
