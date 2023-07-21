@@ -29,6 +29,7 @@ setuptools.setup(
         "requests<=2.25.1",
         "selenium<=3.141.0",
         "pyexecjs",
+        "pyperclip",
         "aiohttp"
     ]
 )
