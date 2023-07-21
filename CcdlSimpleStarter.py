@@ -68,10 +68,10 @@ if __name__ == "__main__":
         print("\nプログラムが配置されているディレクトリに chromedriver が見つからないため、一部の Selenium ベースのコレクション サイトは利用できません。")
         print("使用できます http://npm.taobao.org/mirrors/chromedriver/ or https://chromedriver.chromium.org/downloads ダウンロード\n")
 
-    print("\n>>>>>>>>exit<<<<<<<<\n")
+    print("\n>>>>>>>> exit <<<<<<<<\n")
 
     while True:
-        url = input("url: ")
+        url = sys.argv[1]
 
         if url == 'exit':
             print('Bye~')
@@ -86,7 +86,7 @@ if __name__ == "__main__":
             logger.error("url: {}".format(url))
             logging.error(e)
             print("unsupported url: '{}'".format(url))
-            continue
+            sys.exit()
         reader = SiteReaderLoader(link_info, driver)
         if reader is not None:
             try:
@@ -96,4 +96,4 @@ if __name__ == "__main__":
                 print("ダウンロード失敗! \n" + traceback.format_exc())
         else:
             print("not supported")
-            continue
+            sys.exit()
