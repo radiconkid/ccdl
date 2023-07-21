@@ -167,7 +167,7 @@ class ComicAction(ComicReader):
 
     @staticmethod
     def gen_fpth(comic_json: dict):
-        bpth = os.environ['HOME'] + "/PIctures/Comics/" + \
+        bpth = os.environ['HOME'] + "/Pictures/Comics/" + \
             ("/".join((win_char_replace(comic_json["title"]),
                       win_char_replace(comic_json["subtitle"]))) \
             if comic_json["title"] != "" else win_char_replace(comic_json["subtitle"]))
@@ -208,7 +208,7 @@ class ComicAction(ComicReader):
         comic_json["title"]
         total_pages = len(comic_json["pages"])
         
-        cc_mkdir("~/PIctures/Comics/" + \
+        cc_mkdir(os.environ['HOME'] + "/Pictures/Comics/" + \
             ("/".join((win_char_replace(comic_json["title"]),
                       win_char_replace(comic_json["subtitle"]))) \
             if comic_json["title"] != "" else win_char_replace(comic_json["subtitle"])))
