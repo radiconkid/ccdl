@@ -3,6 +3,7 @@ import copy
 import json
 import logging
 import math
+import os
 from concurrent.futures import ThreadPoolExecutor
 from io import BytesIO
 import string
@@ -166,7 +167,7 @@ class ComicAction(ComicReader):
 
     @staticmethod
     def gen_fpth(comic_json: dict):
-        bpth = "~/PIctures/Comics/" + \
+        bpth = os.environ['HOME'] + "/PIctures/Comics/" + \
             ("/".join((win_char_replace(comic_json["title"]),
                       win_char_replace(comic_json["subtitle"]))) \
             if comic_json["title"] != "" else win_char_replace(comic_json["subtitle"]))
