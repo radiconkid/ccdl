@@ -43,17 +43,17 @@ chrome_options.add_experimental_option("excludeSwitches",
 if __name__ == "__main__":
     driver = None
     is_exist = os.path.exists(executable_path)
-    print("\n源碼: https://github.com/oxdz/ccdl")
+    print("\nソースコード: https://github.com/radiconkid/ccdl")
     if is_exist:
-        print("\n如需登入（含*）請提前在程式啟動的瀏覽器中登入，並加載目標url（任意標籤頁）！\n")
+        print("\nログイン（*を含む）が必要な場合は、プログラムが起動するブラウザで事前にログインし、対象のURL（任意のタブ）を読み込んでください。！\n")
         try:
             driver = webdriver.Chrome(options=chrome_options,
                                       executable_path=executable_path)
         except Exception as e:
             logger.error(traceback.format_exc())
-            print("Chrome啟動失敗! 請檢查Chrome與chromedriver版本\n" +
+            print("Chrome を起動できませんでした。Chrome と chromedriver のバージョンを確認してください\n" +
                   traceback.format_exc())
-            print("您可於 http://npm.taobao.org/mirrors/chromedriver/ or https://chromedriver.chromium.org/downloads 下載\n")
+            print("使用できます http://npm.taobao.org/mirrors/chromedriver/ or https://chromedriver.chromium.org/downloads ダウンロード\n")
 
             driver = None
             if input("Do you want to continue? （y/n）") in ('y', 'Y', 'YES'):
@@ -65,10 +65,10 @@ if __name__ == "__main__":
 
                 sys.exit()
     else:
-        print("\n由於未在程式所在目錄發現chromedriver，部分基於selenium採集的站點將無法進行。")
-        print("您可於 http://npm.taobao.org/mirrors/chromedriver/ or https://chromedriver.chromium.org/downloads 下載\n")
+        print("\nプログラムが配置されているディレクトリに chromedriver が見つからないため、一部の Selenium ベースのコレクション サイトは利用できません。")
+        print("使用できます http://npm.taobao.org/mirrors/chromedriver/ or https://chromedriver.chromium.org/downloads ダウンロード\n")
 
-    print("\n>>>>>>>>輸入exit退出<<<<<<<<\n")
+    print("\n>>>>>>>>exit<<<<<<<<\n")
 
     while True:
         url = input("url: ")
@@ -93,7 +93,7 @@ if __name__ == "__main__":
                 reader.downloader()
             except Exception as e:
                 logger.error(traceback.format_exc())
-                print("下載失敗! \n" + traceback.format_exc())
+                print("ダウンロード失敗! \n" + traceback.format_exc())
         else:
             print("not supported")
             continue
