@@ -97,7 +97,7 @@ class ComicAction(ComicReader):
             driver.get(linkinfo.url)
             elem = WebDriverWait(driver, WAIT_TIME, 0.5).until(
                 lambda x: x.find_element_by_id("episode-json"),
-                message="無法定位元素 episode-json" + ", 獲取json對象數據失敗")
+                message="要素が見つかりません episode-json" + ", jsonオブジェクトデータの取得に失敗しました")
             try:
                 json_dataValue = elem.get_attribute("data-value")
                 json_dataValue = json.loads(json_dataValue)
@@ -193,7 +193,7 @@ class ComicAction(ComicReader):
         
         img0 = Image.open(BytesIO(rq.content))
 
-        # 复原
+        # 回復
         if site_name in {"to-corona-ex.com", "ichijin-plus.com"}:
             proc = proc_img_co_corona(img0.width, img0.height, token)
             proc.n21(img0=img0).save(fpth[0] + "/target/" + fpth[1] + ".png")
