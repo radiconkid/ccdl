@@ -92,9 +92,11 @@ if __name__ == "__main__":
         if reader is not None:
             try:
                 reader.downloader()
+                sys.exit()
             except Exception as e:
                 logger.error(traceback.format_exc())
                 print("ダウンロード失敗! \n" + traceback.format_exc())
+                sys.exit()
         else:
             print("not supported")
             sys.exit()
